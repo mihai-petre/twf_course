@@ -1,0 +1,128 @@
+/* App container styles */
+.app-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* App title styles */
+.app-title {
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Ticket list container styles */
+.ticket-list-container {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ticket list title styles */
+.ticket-list-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Ticket list styles */
+.ticket-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Ticket item styles */
+.ticket-list li {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ticket item title styles */
+.ticket-list li span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Ticket item button styles */
+.ticket-list li button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* View details button styles */
+.view-details-btn {
+    background-color: #28a745;
+}
+
+/* Edit button styles */
+.edit-btn {
+    background-color: #17a2b8;
+}
+
+/* Delete button styles */
+.delete-btn {
+    background-color: #dc3545;
+}
+
+/* New ticket button styles */
+.new-ticket-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Ticket form container styles */
+.ticket-form-container {
+    display: none;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ticket form title styles */
+.ticket-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Ticket form input styles */
+.ticket-form-container input[type="text"],
+.ticket-form-container textarea,
+.ticket-form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    font-size: 16px;
+    resize: none;
+}
+
+/* Ticket form select styles */
+.ticket-form-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M1.41 2.81L0 4.22l4 4 4-4-1.41-1.41L4 5.39 1.41 2.81z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
