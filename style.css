@@ -96,17 +96,20 @@
     margin-bottom: 20px;
 }
 
-/* Ticket form title styles */
-.ticket-form-container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.form-control {
+    margin-bottom: 20px;
 }
 
-/* Ticket form input styles */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 .ticket-form-container input[type="text"],
 .ticket-form-container textarea,
 .ticket-form-container select {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -114,15 +117,39 @@
     background-color: #fff;
     font-size: 16px;
     resize: none;
+    display: block;
+    box-sizing: border-box;
 }
 
-/* Ticket form select styles */
-.ticket-form-container select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M1.41 2.81L0 4.22l4 4 4-4-1.41-1.41L4 5.39 1.41 2.81z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
+/* Ticket priority styles */
+.ticket-priority {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #888;
+}
+
+/* Priority level colors */
+.priority-low {
+    color: green;
+}
+
+.priority-medium {
+    color: yellow;
+}
+
+.priority-high {
+    color: red;
+}
+
+/* Ticket info wrapper styles */
+.ticket-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Button group styles */
+.button-group {
+    display: flex;
+    gap: 5px;
 }

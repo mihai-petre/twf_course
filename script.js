@@ -10,11 +10,20 @@ function renderTicketList() {
         const ticket = tickets[i];
         const li = document.createElement('li');
         li.innerHTML = `
-      <span>${ticket.title}</span>
-      <button class="view-details-btn">View Details</button>
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
-    `;
+        <div class=ticket-info>
+            <div>
+                <span>ID-${ticket.id}</span>
+            </div>
+            <div class=button-group>
+                <button class="view-details-btn">View Details</button>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div>
+                <span class="ticket-priority priority-${ticket.priority}">(${ticket.priority})</span>
+            </div>
+        </div>
+        `;
         const viewDetailsBtn = li.querySelector('.view-details-btn');
         viewDetailsBtn.addEventListener('click', function () {
             renderTicketDetails(ticket);
@@ -38,7 +47,7 @@ function renderTicketDetails(ticket) {
     <h2>${ticket.title}</h2>
     <p><strong>Description:</strong> ${ticket.description}</p>
     <p><strong>Priority:</strong> ${ticket.priority}</p>
-  `;
+    `;
     ticketList.appendChild(li);
 }
 
@@ -46,20 +55,26 @@ function renderTicketForm(ticketToEdit = null) {
     ticketFormContainer.innerHTML = `
     <h2>${ticketToEdit ? 'Edit' : 'New'} Ticket</h2>
     <form>
-      <label for="title">Title</label>
-      <input type="text" id="title" name="title" value="${ticketToEdit ? ticketToEdit.title : ''}" required>
-      <label for="description">Description</label>
-      <textarea id="description" name="description" required>${ticketToEdit ? ticketToEdit.description : ''}</textarea>
-      <label for="priority">Priority</label>
-      <select id="priority" name="priority" required>
-        <option value="low" ${ticketToEdit && ticketToEdit.priority === 'low' ? 'selected' : ''}>Low</option>
-        <option value="medium" ${ticketToEdit && ticketToEdit.priority === 'medium' ? 'selected' : ''}>Medium</option>
-        <option value="high" ${ticketToEdit && ticketToEdit.priority === 'high' ? 'selected' : ''}>High</option>
-      </select>
-      <button type="submit">${ticketToEdit ? 'Save' : 'Create'}</button>
-      <button type="button" id="cancel-btn">Cancel</button>
+        <div class="form-control">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" name="title" value="${ticketToEdit ? ticketToEdit.title : ''}" required>
+        </div>
+        <div class="form-control">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" name="description" required>${ticketToEdit ? ticketToEdit.description : ''}</textarea>
+        </div>
+        <div class="form-control">
+            <label for="priority" class="form-label">Priority</label>
+            <select id="priority" name="priority" required>
+            <option value="low" ${ticketToEdit && ticketToEdit.priority === 'low' ? 'selected' : ''}>Low</option>
+            <option value="medium" ${ticketToEdit && ticketToEdit.priority === 'medium' ? 'selected' : ''}>Medium</option>
+            <option value="high" ${ticketToEdit && ticketToEdit.priority === 'high' ? 'selected' : ''}>High</option>
+            </select>
+        </div>
+        <button type="submit">${ticketToEdit ? 'Save' : 'Create'}</button>
+        <button type="button" id="cancel-btn">Cancel</button>
     </form>
-  `;
+    `;
     const form = ticketFormContainer.querySelector('form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -80,7 +95,7 @@ function renderTicketForm(ticketToEdit = null) {
 }
 
 function createTicket(title, description, priority) {
-    const id = Date.now().toString();
+    const id = Math.floor(Math.random() * 900 + 100).toString();
     tickets.push({ id, title, description, priority });
     renderTicketList();
     hideTicketForm();
